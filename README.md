@@ -17,7 +17,7 @@ To quantify and visualize:
 - Spatial variation in accessibility across the city
 
 ## Preview 
-![Ottawa Park Accessibility Map](data/outputs/map_preview.png)
+![Ottawa Park Accessibility Map](data/assets/map_preview.png)
 Interactive choropleth showing the percentage of DA area within 400m of a public park.
 ## Spatial Methodology
 ### 1. Data Preparation

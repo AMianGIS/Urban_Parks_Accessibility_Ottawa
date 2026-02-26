@@ -19,7 +19,8 @@ data/processed/
 data/outputs/
 
 !**/.gitkeep
-!data/outputs/map_preview.png
+
+!data/assets/map_preview.png
 
 # GIS formats
 *.gpkg
@@ -28,6 +29,9 @@ data/outputs/
 *.dbf
 *.cpg
 *.prj
+
+!data/raw/Ottawa_DAs.gpkg
+!data/raw/Ottawa_Parks_and_Greenspace.gpkg
 
 # OS
 .DS_Store
