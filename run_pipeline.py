@@ -2,6 +2,7 @@
 import os
 import logging
 import argparse
+import time
 from datetime import datetime
 
 # ----------------------------
@@ -26,6 +27,21 @@ logging.basicConfig(
 )
 
 # ----------------------------
+# ENSURE REQUIRED DIRECTORIES EXIST
+# ----------------------------
+
+from pathlib import Path
+
+REQUIRED_DIRS = [
+    Path("data/processed"),
+    Path("data/outputs"),
+    Path("logs")
+]
+
+for folder in REQUIRED_DIRS:
+    folder.mkdir(parents=True, exist_ok=True)
+
+# ----------------------------
 # IMPORT PIPELINE SCRIPTS
 # ----------------------------
 
@@ -39,6 +55,7 @@ import geopandas as gpd
 # PIPELINE FUNCTION
 # ----------------------------
 def run_pipeline(crs="EPSG:3857", buffer_distances=[400, 800, 1600]):
+    start_time = time.time()
     logging.info("=== Ottawa Accessibility Pipeline Started ===")
 
     # ----------------------------
@@ -65,8 +82,8 @@ def run_pipeline(crs="EPSG:3857", buffer_distances=[400, 800, 1600]):
 
     create_combined_map(da_gdf, parks_gdf)
     logging.info("Mapping complete.")
-
-    logging.info("=== Pipeline Finished Successfully ===")
+    total_time = time.time() - start_time
+    logging.info(f"=== Pipeline Finished Successfully in {total_time:.2f} seconds ===")
 
 # ----------------------------
 # CLI ENTRY
@@ -76,7 +93,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--crs",
         type=str,
-        default="EPSG:3857",
+        default="EPSG:4326",
         help="CRS for all processing steps"
     )
     parser.add_argument(
