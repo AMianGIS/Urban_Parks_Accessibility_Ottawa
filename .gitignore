@@ -1,0 +1,34 @@
+# PyCharm files
+.idea/
+*.iml
+
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+*.log
+
+# Processed & output data
+data/processed/
+data/outputs/
+
+!**/.gitkeep
+!data/outputs/map_preview.png
+
+# GIS formats
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.cpg
+*.prj
+
+# OS
+.DS_Store
+Thumbs.db
